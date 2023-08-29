@@ -18,7 +18,7 @@ canvas.style.height = `${h}px`; // 控制显示大小
 const ctx = canvas.getContext('2d');
 ctx.imageSmoothingEnabled = false; // 禁用平滑处理
 
-const numSteps = 10000;  // 游走步数
+const numSteps = 1000;  // 游走步数
 const stepSize = 5;     // 步长
 const delay = 1;     // 每步之间的延迟（1秒）
 
@@ -60,7 +60,8 @@ walk_03.addEventListener('click', function () {
 
 peak_01.addEventListener('click', function () {
     // 清除 Canvas 内容
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = `rgba(${Math.random()*255}, 89, 89, 0.5)`;
     reset(0);
     x = 0;
     clearTimeout(timeoutId);
@@ -69,7 +70,7 @@ peak_01.addEventListener('click', function () {
 
 function drawRandomWalk() {
     if (step < numSteps) {
-        // ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
+        //ctx.fillStyle = `rgba(${Math.random()*2550}, ${Math.random()*2550}, ${Math.random()*2550}, 1)`;
         // // 设置线段的透明度
         // ctx.globalAlpha = 0.5;
         ctx.beginPath();
@@ -153,9 +154,9 @@ function drawRandomPeak() {
         ctx.moveTo(x, y);
 
         // 随机选择一个方向
-        const angle = Math.max(0, Math.random() + 0.4) * 2 * Math.PI;
-        x += 0.1;
-        if (Math.random() < 0.99) {
+        const angle = Math.max(0, Math.random()) * 2 * Math.PI;
+        x += 0.5;
+        if (Math.random() < 0.999) {
             y -= Math.round(Math.random() * stepSize * Math.sin(angle));
         } else {
             y -= Math.round(100 * Math.random() * Math.sin(angle));
