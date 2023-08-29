@@ -19,7 +19,7 @@ const ctx = canvas.getContext('2d');
 ctx.imageSmoothingEnabled = false; // 禁用平滑处理
 
 const numSteps = 5000;  // 游走步数
-const stepSize = 2;     // 步长
+const stepSize = 5;     // 步长
 const delay = 1;     // 每步之间的延迟（1秒）
 
 let timeoutId;
