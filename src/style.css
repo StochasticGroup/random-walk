@@ -1,0 +1,20 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+
+#canvas {
+    border: 1px solid black;
+    width: 600px;
+    height: 600px;
+}
+
+.ButtonGroup{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    width: 100px;
+    height: 20px;
+}
