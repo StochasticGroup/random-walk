@@ -18,7 +18,7 @@ canvas.style.height = `${h}px`; // 控制显示大小
 const ctx = canvas.getContext('2d');
 ctx.imageSmoothingEnabled = false; // 禁用平滑处理
 
-const numSteps = 5000;  // 游走步数
+const numSteps = 10000;  // 游走步数
 const stepSize = 5;     // 步长
 const delay = 1;     // 每步之间的延迟（1秒）
 
@@ -69,6 +69,9 @@ peak_01.addEventListener('click', function () {
 
 function drawRandomWalk() {
     if (step < numSteps) {
+        // ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
+        // // 设置线段的透明度
+        // ctx.globalAlpha = 0.5;
         ctx.beginPath();
         ctx.moveTo(x, y);
 
@@ -121,14 +124,14 @@ function drawRandomWalk_2() {
         ctx.moveTo(x, y);
 
         if (Math.random() < 0.5) {
-            if(Math.random() <0.5){
+            if (Math.random() < 0.5) {
                 x += stepSize;
-            }else{
+            } else {
                 x -= stepSize;
             }
-        } else if(Math.random() <0.5) {
+        } else if (Math.random() < 0.5) {
             y += stepSize;
-        }else{
+        } else {
             y -= stepSize;
         }
 
@@ -144,7 +147,7 @@ function drawRandomWalk_2() {
     }
 }
 
-function drawRandomPeak(){
+function drawRandomPeak() {
     if (step < numSteps) {
         ctx.beginPath();
         ctx.moveTo(x, y);
@@ -164,7 +167,7 @@ function drawRandomPeak(){
         ctx.stroke();
 
         step++;
-        
+
         // 使用setTimeout来实现动画效果
         timeoutId = setTimeout(drawRandomPeak, delay);
     }
